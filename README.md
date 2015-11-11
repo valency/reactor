@@ -1,2 +1,2 @@
-# reactor
-A File Management System Which Executes Shell Scripts
+# SmartCube Reactor
+A file management system which executes shell scripts.
