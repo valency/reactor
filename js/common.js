@@ -57,3 +57,19 @@ function get_url_parameter(p) {
         }
     }
 }
+
+function success_message(msg) {
+    return "<span class='text-success'><i class='fa fa-check-circle'></i> " + msg + "</span>";
+}
+
+function error_message(msg) {
+    return "<span class='text-danger'><i class='fa fa-times-circle'></i> " + msg + "</span>";
+}
+
+function warning_message(msg) {
+    return "<span class='text-warning'><i class='fa fa-exclamation-circle'></i> " + msg + "</span>";
+}
+
+function check_login() {
+    return !($.cookie('smartcube_reactor') == undefined || $.cookie('smartcube_reactor') == null);
+}
