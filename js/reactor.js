@@ -2,6 +2,7 @@ var reactor_file = guid() + ".script";
 
 $(document).ready(function () {
     if (!check_login()) window.location.href = "login.php";
+    // Script list
     $('#file-upload').fileupload({
         dataType: 'json',
         done: function (e, data) {
@@ -16,6 +17,7 @@ $(document).ready(function () {
         }
     });
     $('#script-table').DataTable();
+    // Editor
     var editor = CodeMirror.fromTextArea(document.getElementById("script-content"));
     editor.setOption("extraKeys", {
         Tab: function (cm) {
@@ -49,7 +51,62 @@ $(document).ready(function () {
             });
         }
     });
+    // Server status
+    $.ajax($("#server-url-ui").html()).done(function () {
+        generate_up_icon("ui");
+    }).fail(function () {
+        generate_down_icon("ui");
+    });
+    $.ajax($("#server-url-api").html()).done(function () {
+        generate_up_icon("api");
+    }).fail(function () {
+        generate_down_icon("api");
+    });
 });
+
+function generate_up_icon(component) {
+    $("#server-status-" + component).switchClass("label-default", "label-success");
+    $("#server-status-" + component).html("UP");
+    $("#server-op-" + component).switchClass("label-default", "label-danger");
+    $("#server-op-" + component).html("Stop Server");
+    $("#server-op-" + component).click(function () {
+        stop_server(component);
+    });
+}
+
+function generate_down_icon(component) {
+    $("#server-status-" + component).switchClass("label-default", "label-danger");
+    $("#server-status-" + component).html("DOWN");
+    $("#server-op-" + component).switchClass("label-default", "label-success");
+    $("#server-op-" + component).html("Start Server");
+    $("#server-op-" + component).click(function () {
+        start_server(component);
+    });
+}
+
+function start_server(component) {
+    bootbox.dialog({
+        message: "<p>The following server will be <span class='text-success'>started</span>:</p><p class='text-info'>" + $("#server-label-" + component).html() + "</p>",
+        buttons: {
+            Proceed: function () {
+                bootbox.hideAll();
+                window.open("php/execute.php?f=");
+            }
+        }
+    });
+}
+
+function stop_server(component) {
+    bootbox.dialog({
+        message: "<p>The following server will be <span class='text-danger'>stopped</span>:</p><p class='text-info'>" + $("#server-label-" + component).html() + "</p>",
+        buttons: {
+            Proceed: function () {
+                bootbox.hideAll();
+                window.open("php/execute.php?f=");
+            }
+        }
+    });
+}
 
 function delete_file(file) {
     bootbox.dialog({

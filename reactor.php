@@ -17,10 +17,29 @@
 </legend>
 <div class="tabbable">
     <ul class="nav nav-pills nav-stacked col-md-2">
-        <li class="active"><a href="#script-list" data-toggle="tab">Execute Script</a></li>
+        <li class="active"><a href="#server-status" data-toggle="tab">Server Status</a></li>
+        <li><a href="#script-list" data-toggle="tab">Execute Script</a></li>
         <li><a href="#script-console" data-toggle="tab">Compose Script</a></li>
     </ul>
     <div class="tab-content col-md-10">
+        <div class="tab-pane active" id="server-status">
+            <div class="row">
+                <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                    <i class="fa fa-server"></i>
+                    <span id="server-label-ui">SmartCube UI Server</span><br/>
+                    <a id="server-url-ui" href="http://<?php echo $_SERVER["SERVER_NAME"]; ?>/joker/" target="_blank">http://<?php echo $_SERVER["SERVER_NAME"]; ?>/joker/</a><br/>
+                    <span id="server-status-ui" class="label label-default">Testing ...</span>
+                    <a id="server-op-ui" href="javascript:void(0)" class="label label-default"> - </a>
+                </div>
+                <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                    <i class="fa fa-server"></i>
+                    <span id="server-label-api">SmartCube API Server</span><br/>
+                    <a id="server-url-api" href="https://<?php echo $_SERVER["SERVER_NAME"]; ?>/admin/" target="_blank">https://<?php echo $_SERVER["SERVER_NAME"]; ?>/admin/</a><br/>
+                    <span id="server-status-api" class="label label-default">Testing ...</span>
+                    <a id="server-op-api" href="javascript:void(0)" class="label label-default"> - </a>
+                </div>
+            </div>
+        </div>
         <div class="tab-pane" id="script-console">
             <div class="form-group">
                 <label for="comment">Write scripts below and hit <code>Shift + Enter</code> to execute, <code>Ctrl + C</code> to terminate, and <code>Ctrl + S</code> to save.</label>
@@ -31,7 +50,7 @@
                 <iframe id="script-result" src="javascript:void(0)" onload='resize_frame(this);'></iframe>
             </div>
         </div>
-        <div class="tab-pane active" id="script-list">
+        <div class="tab-pane" id="script-list">
             <div>
                 <button class="btn btn-primary" type="button" onclick="$('#file-upload').click();"><i class="fa fa-upload"></i> Upload</button>
                 <input id="file-upload" class="hidden" type="file" name="files[]" data-url="./data/" multiple/>
