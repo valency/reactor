@@ -34,7 +34,7 @@
                 <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
                     <i class="fa fa-server"></i>
                     <span id="server-label-api">SmartCube API Server</span><br/>
-                    <a id="server-url-api" proxy="https://<?php echo $_SERVER["SERVER_NAME"] . ":8443"; ?>/admin/" href="https://<?php echo $_SERVER["SERVER_NAME"]; ?>/admin/" target="_blank">https://<?php echo $_SERVER["SERVER_NAME"]; ?>/admin/</a><br/>
+                    <a id="server-url-api" proxy="https://<?php echo $_SERVER["SERVER_NAME"] . ":8443"; ?>/joker/auth/trust/" href="https://<?php echo $_SERVER["SERVER_NAME"]; ?>/admin/" target="_blank">https://<?php echo $_SERVER["SERVER_NAME"]; ?>/admin/</a><br/>
                     <span id="server-status-api" class="label label-default">Testing ...</span>
                     <a id="server-op-api" href="javascript:void(0)" class="label label-default"> - </a>
                 </div>

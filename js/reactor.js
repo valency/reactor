@@ -53,13 +53,13 @@ $(document).ready(function () {
     });
     // Server status
     $.ajax("php/proxy.php?url=" + $("#server-url-ui").attr("proxy")).done(function (r) {
-        if (r.length > 0) generate_up_icon("ui");
+        if (r.length > 0 && !r.startsWith("ERROR")) generate_up_icon("ui");
         else generate_down_icon("ui");
     }).fail(function () {
         generate_down_icon("ui");
     });
     $.ajax("php/proxy.php?url=" + $("#server-url-api").attr("proxy")).done(function (r) {
-        if (r.length > 0) generate_up_icon("api");
+        if (r.length > 0 && !r.startsWith("ERROR")) generate_up_icon("api");
         else generate_down_icon("api");
     }).fail(function () {
         generate_down_icon("api");
