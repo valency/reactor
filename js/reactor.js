@@ -52,13 +52,15 @@ $(document).ready(function () {
         }
     });
     // Server status
-    $.ajax($("#server-url-ui").html()).done(function () {
-        generate_up_icon("ui");
+    $.ajax("php/proxy.php?url=" + $("#server-url-ui").html()).done(function (r) {
+        if (r.length > 0) generate_up_icon("ui");
+        else generate_down_icon("ui");
     }).fail(function () {
         generate_down_icon("ui");
     });
-    $.ajax($("#server-url-api").html()).done(function () {
-        generate_up_icon("api");
+    $.ajax("php/proxy.php?url=" + $("#server-url-api").html()).done(function (r) {
+        if (r.length > 0) generate_up_icon("api");
+        else generate_down_icon("api");
     }).fail(function () {
         generate_down_icon("api");
     });
