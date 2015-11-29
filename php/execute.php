@@ -30,6 +30,6 @@ proc_close($process);
 function kill($process) {
     $status = proc_get_status($process);
     exec('pgrep -P ' . $status['pid'], $child_pid);
-    if (sizeof($child_pid) > 0) return exec('sudo kill -9 -' . $child_pid[0]);
+    if (sizeof($child_pid) > 0) return exec('kill -9 -' . $child_pid[0]);
     else return null;
 }
