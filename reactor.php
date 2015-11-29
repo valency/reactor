@@ -47,7 +47,7 @@
             </div>
             <hr/>
             <div class="form-group">
-                <iframe id="script-result" src="javascript:void(0)" onload='resize_frame(this);'></iframe>
+                <iframe id="script-result" src="javascript:void(0)" onload='resize_frame(this);' style="min-height:600px;"></iframe>
             </div>
         </div>
         <div class="tab-pane" id="script-list">
