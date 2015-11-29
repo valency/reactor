@@ -1,7 +1,7 @@
 <?php
 ob_implicit_flush(true);
 ob_end_flush();
-$cmd = "bash " . $_GET["f"];
+$cmd = "setsid bash " . $_GET["f"];
 $spec = array(
     0 => array("pipe", "r"),
     1 => array("pipe", "w"),
@@ -29,5 +29,7 @@ proc_close($process);
 
 function kill($process) {
     $status = proc_get_status($process);
-    return exec('kill -- -$(ps -o pgid= ' . $status['pid'] . ' | grep -o [0-9]*)');
+    exec('pgrep -P ' . $status['pid'], $child_pid);
+    if (sizeof($child_pid) > 0) return exec('kill -9 -' . $child_pid[0]);
+    else return null;
 }
