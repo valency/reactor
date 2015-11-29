@@ -9,6 +9,7 @@ function curl($url) {
     $curl = curl_init($url);
     curl_setopt($curl, CURLOPT_RETURNTRANSFER, TRUE);
     $output = curl_exec($curl);
+    if ($output == false) $output = 'ERROR: ' . curl_error($curl);
     curl_close($curl);
     return $output;
 }
