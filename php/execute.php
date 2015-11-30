@@ -9,6 +9,8 @@ $spec = array(
 );
 $process = proc_open($cmd, $spec, $pipes, realpath('../data/'), array());
 register_shutdown_function('kill', $process);
+$status = proc_get_status($process);
+echo "<code style='color:grey;'>PID: ".$status['pid']."</code>";
 echo "<pre>";
 if (is_resource($process)) {
     if (!stream_set_blocking($pipes[2], 0)) die("Could not set timeout");
@@ -32,5 +34,6 @@ function kill($process) {
     //exec('pgrep -P ' . $status['pid'], $child_pid);
     //if (sizeof($child_pid) > 0) return exec('kill -9 -' . $child_pid[0]);
     //else return null;
-    return exec('kill -9 -' . $status['pid']);
+    if(isset($_GET['nohup'])) return null;
+    else return exec('kill -9 -' . $status['pid']);
 }

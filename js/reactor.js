@@ -92,7 +92,7 @@ function start_server(component) {
         buttons: {
             Proceed: function () {
                 bootbox.hideAll();
-                window.open("php/execute.php?f=/data/ui-setup-scripts/smartcube-ui-start-" + component + ".sh");
+                window.open("php/execute.php?f=/data/ui-setup-scripts/smartcube-ui-start-" + component + ".sh&nohup=true");
             }
         }
     });
@@ -104,7 +104,7 @@ function stop_server(component) {
         buttons: {
             Proceed: function () {
                 bootbox.hideAll();
-                window.open("php/execute.php?f=/data/ui-setup-scripts/smartcube-ui-stop-" + component + ".sh");
+                window.open("php/execute.php?f=/data/ui-setup-scripts/smartcube-ui-stop-" + component + ".sh&nohup=true");
             }
         }
     });
