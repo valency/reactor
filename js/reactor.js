@@ -51,64 +51,7 @@ $(document).ready(function () {
             });
         }
     });
-    // Server status
-    $.ajax("php/proxy.php?url=" + $("#server-url-ui").attr("proxy")).done(function (r) {
-        if (r.length > 0 && !r.startsWith("ERROR")) generate_up_icon("ui");
-        else generate_down_icon("ui");
-    }).fail(function () {
-        generate_down_icon("ui");
-    });
-    $.ajax("php/proxy.php?url=" + $("#server-url-api").attr("proxy")).done(function (r) {
-        if (r.length > 0 && !r.startsWith("ERROR")) generate_up_icon("api");
-        else generate_down_icon("api");
-    }).fail(function () {
-        generate_down_icon("api");
-    });
 });
-
-function generate_up_icon(component) {
-    $("#server-status-" + component).switchClass("label-default", "label-success");
-    $("#server-status-" + component).html("UP");
-    $("#server-op-" + component).switchClass("label-default", "label-danger");
-    $("#server-op-" + component).html("Stop Server");
-    $("#server-op-" + component).click(function () {
-        stop_server(component);
-    });
-}
-
-function generate_down_icon(component) {
-    $("#server-status-" + component).switchClass("label-default", "label-danger");
-    $("#server-status-" + component).html("DOWN");
-    $("#server-op-" + component).switchClass("label-default", "label-success");
-    $("#server-op-" + component).html("Start Server");
-    $("#server-op-" + component).click(function () {
-        start_server(component);
-    });
-}
-
-function start_server(component) {
-    bootbox.dialog({
-        message: "<p>The following server will be <span class='text-success'>started</span>:</p><p class='text-info'>" + $("#server-label-" + component).html() + "</p>",
-        buttons: {
-            Proceed: function () {
-                bootbox.hideAll();
-                window.open("php/execute.php?f=/home/smartcube/local/var/ui-setup-scripts/smartcube-ui-start-" + component + ".sh&nohup=true");
-            }
-        }
-    });
-}
-
-function stop_server(component) {
-    bootbox.dialog({
-        message: "<p>The following server will be <span class='text-danger'>stopped</span>:</p><p class='text-info'>" + $("#server-label-" + component).html() + "</p>",
-        buttons: {
-            Proceed: function () {
-                bootbox.hideAll();
-                window.open("php/execute.php?f=/home/smartcube/local/var/ui-setup-scripts/smartcube-ui-stop-" + component + ".sh&nohup=true");
-            }
-        }
-    });
-}
 
 function delete_file(file) {
     bootbox.dialog({
