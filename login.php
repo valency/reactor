@@ -17,11 +17,6 @@
     </div>
     <div class="row">
         <div class="col-md-12 form-group">
-            <input type="text" class="form-control" id="username" placeholder="User Name"/>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-md-12 form-group">
             <input type="password" class="form-control" id="password" placeholder="Password"/>
         </div>
     </div>
