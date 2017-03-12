@@ -73,7 +73,9 @@ legend .version {
 }
 
 .logo {
-    height: 2em;
+    height: 1em;
+    vertical-align: top;
+    margin-top: 8px;
 }
 
 .dataTables_length label select {

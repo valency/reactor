@@ -1,7 +1,6 @@
 <html>
 <head>
-    <?php require "php/lib.php"; ?>
-    <title>SmartCube: Reactor</title>
+    <?php require "lib.php"; ?>
     <link href="css/index.css" rel="stylesheet" type="text/css"/>
     <script src="js/index.js"></script>
 </head>

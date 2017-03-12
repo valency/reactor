@@ -2,6 +2,8 @@
 <meta name="viewport" content="initial-scale=1.0,user-scalable=no"/>
 <link rel="shortcut icon" href="favicon.ico"/>
 
+<title>Reactor</title>
+
 <link rel="stylesheet" href="lib/jquery-ui-1.11.3/jquery-ui.min.css">
 <link rel="stylesheet" href="lib/bootstrap-3.3.5/css/bootstrap.min.css">
 <link rel="stylesheet" href="lib/font-awesome-4.4.0/css/font-awesome.min.css">

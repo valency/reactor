@@ -2,7 +2,6 @@ var reactor_file = guid() + ".script";
 
 $(document).ready(function () {
     if (!check_login()) window.location.href = "login.php";
-    // Script list
     $('#file-upload').fileupload({
         dataType: 'json',
         done: function (e, data) {
@@ -16,8 +15,7 @@ $(document).ready(function () {
             $(".progress-bar").css('width', progress + '%');
         }
     });
-    $('#script-table').DataTable();
-    // Editor
+    $('#script-table').DataTable({stateSave: true});
     var editor = CodeMirror.fromTextArea(document.getElementById("script-content"));
     editor.setOption("extraKeys", {
         Tab: function (cm) {
@@ -43,9 +41,9 @@ $(document).ready(function () {
                         c: editor.getValue()
                     }, function () {
                         bootbox.hideAll();
-                        bootbox.alert(success_message("Successfully saved to: " + result + ".script"));
+                        bootbox.alert("<p>" + success_message("Successfully saved as the following script: ") + "</p><pre>" + result + ".script" + "</pre>");
                     }).fail(function () {
-                        bootbox.alert(error_message("Failed to saved to: " + result + ".script"));
+                        bootbox.alert("<p>" + error_message("Failed to save as the following script: ") + "</p><pre>" + result + ".script" + "</pre>");
                     });
                 }
             });
@@ -55,11 +53,16 @@ $(document).ready(function () {
 
 function delete_file(file) {
     bootbox.dialog({
-        message: "<p>The following script will be deleted:</p><p class='text-danger'>" + file + "</p>",
+        message: "<p>The following script will be deleted:</p><pre>" + file + "</pre>",
         buttons: {
             Proceed: function () {
-                $.get("data/delete.php?f=" + file, function (r) {
-                    location.reload();
+                $.ajax({
+                    type: "DELETE",
+                    url: "data/index.php?file=" + file,
+                    dataType: "json",
+                    complete: function (data) {
+                        location.reload();
+                    }
                 });
             }
         }
@@ -68,7 +71,7 @@ function delete_file(file) {
 
 function execute_script(file) {
     bootbox.dialog({
-        message: "<p>The following script will be executed:</p><p class='text-danger'>" + file + "</p>",
+        message: "<p>The following script will be executed:</p><pre>" + file + "</pre>",
         buttons: {
             Proceed: function () {
                 bootbox.hideAll();

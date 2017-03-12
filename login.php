@@ -1,7 +1,6 @@
 <html>
 <head>
-    <?php require "php/lib.php"; ?>
-    <title>SmartCube: Reactor</title>
+    <?php require "lib.php"; ?>
     <script src="js/login.js" type="text/javascript"></script>
 </head>
 <body>
@@ -9,9 +8,9 @@
     <div class="row">
         <div class="col-md-12">
             <legend>
-                <span class="text-danger">Smart</span><span class="text-info">Cube</span>
+                <img class="logo" src="img/logo.png"/>
                 <span>Reactor</span>
-                <span class="version">v0.<?php echo date("n.j", filemtime("./reactor.php")); ?></span>
+                <a class="version" target="_blank" href="http://www.deepera.com">v1.3.12</a>
             </legend>
         </div>
     </div>

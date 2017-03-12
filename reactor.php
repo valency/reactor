@@ -1,7 +1,6 @@
 <html>
 <head>
-    <?php require "php/lib.php"; ?>
-    <title>SmartCube: Reactor</title>
+    <?php require "lib.php"; ?>
     <link rel="stylesheet" href="lib/codemirror-5.8/lib/codemirror.css">
     <script src="lib/jquery-file-upload-9.10.4/js/vendor/jquery.ui.widget.js"></script>
     <script src="lib/jquery-file-upload-9.10.4/js/jquery.iframe-transport.js"></script>
@@ -10,10 +9,10 @@
     <script src="js/reactor.js" type="text/javascript"></script>
 </head>
 <body>
-<legend class="text-success">
-    <span class="text-danger">Smart</span><span class="text-info">Cube</span>
+<legend>
+    <img class="logo" src="img/logo.png"/>
     <span>Reactor</span>
-    <span class="version">v0.<?php echo date("n.j", filemtime("./reactor.php")); ?></span>
+    <a class="version" target="_blank" href="http://www.deepera.com">v1.3.12</a>
 </legend>
 <div class="tabbable">
     <ul class="nav nav-pills nav-stacked col-md-2">
