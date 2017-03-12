@@ -11,7 +11,7 @@ Then the file will appear in the file list for download.
 You can also use Reactor as a file host to upload and download files.
 
 # Installation
-Reactor requires PHP to deploy. Simply put the source files under your favorite web host, e.g., <a target='_blank' href='https://www.nginx.com/'>NGINX</a> and you are ready to go.
+Reactor requires PHP to deploy. Simply put the source files under your favorite web host, e.g., <a target='_blank' href='https://www.nginx.com/'>NGINX</a>, and you are ready to go.
 
 # Authentication
 Since shell scripts are dangerous, to prevent unsafe access, you must log in before any further operations. The authenication system is based on dynamic passwords, and you should use an authenticator, e.g., <a target='_blank' href='https://support.google.com/accounts/answer/1066447'>Google Authenticator</a> or <a target='_blank' href='https://docs.microsoft.com/en-us/azure/multi-factor-authentication/end-user/microsoft-authenticator-app-how-to'>Microsoft Authenticator</a>, to generate the passwords.
