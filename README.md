@@ -1,5 +1,9 @@
 Reactor is a file management system which executes shell scripts. You could upload any files including shell scripts and execute them remotely from your browser.
 
+![](http://nicpu3.cse.ust.hk/reactor/data/reactor-p1.png)
+
+![](http://nicpu3.cse.ust.hk/reactor/data/reactor-p2.png)
+
 For example, if you wish to download a file remotely when it is not possible to access in your current envionment (e.g., behind GFW), you could type and execute the following commands:
 
 ```
