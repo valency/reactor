@@ -1,3 +1,6 @@
 theme: jekyll-theme-hacker
-title: 'Reactor: PHP-based Shell Scripts Manager'
-description: 'A file management system which executes shell scripts.'
+title: 'Reactor'
+description: 'PHP-based Shell Scripts Manager'
+creator: <a href="http://www.cse.ust.hk/~valency">Valency</a>
+download:
+  source:         https://github.com/valency/reactor/archive/v1.3.12.zip
