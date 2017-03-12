@@ -1,6 +1,5 @@
 theme: jekyll-theme-hacker
 title: 'Reactor'
 description: 'PHP-based Shell Scripts Manager'
-creator: <a href="http://www.cse.ust.hk/~valency">Valency</a>
-download:
-  source:         https://github.com/valency/reactor/archive/v1.3.12.zip
+version: v1.3.12
+show_downloads: true
