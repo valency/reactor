@@ -30,5 +30,5 @@ otpauth://totp/Reactor?secret=SMARTCUBEDEEPERA
 
 Then use your authenticator to scan the QR code and get dynamic passwords.
 
-
+To change the default dynamic seed, you could edit line `82` of `php/auth.php`.
 
