@@ -1,8 +1,8 @@
 Reactor is a file management system which executes shell scripts. You could upload any files including shell scripts and execute them remotely from your browser.
 
-![](http://nicpu3.cse.ust.hk/reactor/data/reactor-p1.png)
+![](./img/reactor-1.png)
 
-![](http://nicpu3.cse.ust.hk/reactor/data/reactor-p2.png)
+![](./img/reactor-2.png)
 
 For example, if you wish to download a file remotely when it is not possible to access in your current envionment (e.g., behind GFW), you could type and execute the following commands:
 
@@ -32,3 +32,6 @@ Then use your authenticator to scan the QR code and get dynamic passwords.
 
 To change the default dynamic seed, you could edit line `82` of `php/auth.php`.
 
+---
+
+&copy; 2017-2020 Valency
